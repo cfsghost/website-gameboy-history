@@ -1,638 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Game Boy</title>
-	<link href="css/default.css" rel="stylesheet" type="text/css" />
-	<style>
-	#frontpage-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#frontpage-block {
-		left: 27%;
-		top: 300pt;
-		width: 450pt;
-		position: absolute;
-	}
-
-	#frontpage-header {
-		font-size: 20pt;
-		margin: 0;
-	}
-
-	#frontpage-desc {
-		font-size: 10.5pt;
-		color: #bbbbbb;
-		text-align: justify;
-	}
-
-	#gameboy-1989-img {
-		height: auto;
-		width: auto;
-		z-index: 101;
-		position: absolute;
-	}
-
-	#gameboy-1996-img {
-		height: auto;
-		width: auto;
-		z-index: 100;
-		position: absolute;
-	}
-
-	#gameboy-1998-1-img {
-		height: auto;
-		width: auto;
-		z-index: 99;
-		position: absolute;
-	}
-
-	#gameboy-1998-2-img {
-		height: auto;
-		width: auto;
-		z-index: 100;
-		position: absolute;
-	}
-
-	#gameboy-2001-img {
-		height: auto;
-		width: auto;
-		z-index: 100;
-		position: absolute;
-	}
-
-	#gameboy-2003-img {
-		height: auto;
-		width: auto;
-		z-index: 99;
-		position: absolute;
-	}
-
-	#gameboy-2005-img {
-		height: auto;
-		width: auto;
-		float: left;
-		z-index: 100;
-		position: absolute;
-	}
-
-	#block-1989 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-1989-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-1989-layout img {
-		height: 80%;
-		width: auto;
-		z-index: 101;
-		position: absolute;
-		/*-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));*/
-	}
-
-	#block-1989-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-1989-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-1989-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-1989-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-1989-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-
-	#block-1996 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-1996-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-1996-layout img {
-		height: 80%;
-		width: auto;
-		z-index: 101;
-		position: absolute;
-		-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));
-	}
-
-	#block-1996-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-1996-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-1996-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-1996-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-1996-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-
-	#block-1998 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-1998-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-1998-layout img {
-		height: 80%;
-		width: auto;
-		z-index: 101;
-		position: absolute;
-		-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));
-	}
-
-	#block-1998-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-1998-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-1998-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-1998-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-1998-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-
-	#block-2001 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-2001-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-2001-layout img {
-		width: 50%;
-		height: auto;
-		z-index: 101;
-		position: absolute;
-		-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));
-	}
-
-	#block-2001-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-2001-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-2001-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-2001-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-2001-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-
-	#block-2003 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-2003-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-2003-layout img {
-		height: 80%;
-		width: auto;
-		z-index: 101;
-		position: absolute;
-		-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));
-	}
-
-	#block-2003-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-2003-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-2003-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-2003-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-2003-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-
-	#block-2005 {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-	}
-
-	#block-2005-layout {
-		width: 1020px;
-		height: 100%;
-		margin: auto;
-		position: relative;
-	}
-
-	#block-2005-layout img {
-		width: 70%;
-		height: auto;
-		z-index: 101;
-		position: absolute;
-		-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,.5));
-	}
-
-	#block-2005-layout .block {
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		position: absolute;
-	}
-
-	#block-2005-layout .block .year {
-		color: white;
-		font-size: 120pt;
-		font-weight: bold;
-		position: absolute;
-		left: 20%;
-	}
-
-	#block-2005-layout .block .content {
-		position: absolute;
-		width: 100%;
-	}
-
-	#block-2005-layout .block .content .header {
-		color: #444444;
-		font-size: 34pt;
-	}
-
-	#block-2005-layout .block .content .desc {
-		color: #444444;
-		width: 84%;
-		line-height: 160%;
-		text-align: justify;
-	}
-	</style>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.10.4.min.js"></script>
-</head>
-<body data-0="" data-1000="background:rgb(220,220,220);" data-2000="background:rgb(250,230,160);" data-3000="background:rgb(220,235,245);" data-4000="background:rgb(240,220,240);" data-5000="background:rgb(230,235,245);" data-6000="background:rgb(220,235,245);" data-7000="background:rgb(240,220,220);">
-
-	<div id="frontpage" data-0="background-color: rgb(30,30,30); height: 100%;" data-1000="background-color: rgb(255,255,255); height: 8%;" data-emit-events>
-
-		<div id="frontpage-layout">
-			<div class="web-title" data-0="opacity: 0;" data-500="opacity: 0;" data-1000="opacity: 1;">
-				<div class="title">Game Boy</div>
-			</div>
-			<a href="#gameboy-1989" data-menu-top="1000">
-				<img src="img/1989.png" id="gameboy-1989-img" data-0="transform:rotate(-10deg); width: 35%; left: -9%; top: 10%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 4%; left: 14%; top: 0px;" data-2000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-1996" data-menu-top="2000">
-				<img src="img/1996.png" id="gameboy-1996-img" data-0="transform:rotate(15deg); width: 20%; left: 14.5%; top: 4%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 4%; left: 18%; top: 0px; opacity: .1;" data-2000="opacity: 1;" data-3000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-1998-1" data-menu-top="3000">
-				<img src="img/1998-1.png" id="gameboy-1998-1-img" data-0="transform:rotate(30deg); width: 18%; left: 28%; top: 8%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 4%; left: 22%; top: 0px; opacity: .1;" data-2000="opacity: .1;" data-3000="opacity: 1;" data-4000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-1998-2" data-menu-top="4000">
-				<img src="img/1998-2.png" id="gameboy-1998-2-img" data-0="transform:rotate(-10deg); width: 32%; left: 36%; top: -8%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 4%; left: 26%; top: 0px; opacity: .1" data-3000="opacity: .1;"  data-4000="opacity: 1;" data-5000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-2001" data-menu-top="5000">
-				<img src="img/2001.png" id="gameboy-2001-img" data-0="transform:rotate(25deg); width: 35%; left: 57.5%; top: 1%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 6%; left: 30%; top: 1%; opacity: .1" data-4000="opacity: .1;" data-5000="opacity: 1;" data-6000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-2003" data-menu-top="6000">
-				<img src="img/2003.png" id="gameboy-2003-img" data-0="transform:rotate(60deg); width: 21%; left: 80%; top: 10%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 4%; left: 37%; top: 0px; opacity: .1" data-5000="opacity: .1;" data-6000="opacity: 1;" data-7000="opacity: .1;">
-			</a>
-
-			<a href="#gameboy-2005" data-menu-top="7000">
-				<img src="img/2005.png" id="gameboy-2005-img" data-0="transform:rotate(-10deg); width: 55%; left: 57%; top: 65%; opacity: 1;" data-1000="transform:rotate(0deg);transform-origin:center; width: 6%; left: 41%; top: 1%; opacity: .1" data-6000="opacity: .1;" data-7000="opacity: 1;" no-data-8000="opacity: .1;">
-			</a>
-
-			<div id="frontpage-block" data-0="opacity: 1;" data-1000="opacity: 0;">
-				<h2 id="frontpage-header">Game Boy</h2>
-				<div id="frontpage-desc">
-					<p>從 20 世紀 90 年代開始，Game Boy 一直是掌上遊戲機的代表者。低廉的價格、種類繁多的遊戲、耗電量不大、加上是由當時遊戲界霸者的 Nintendo 出品，所以即使只是黑白畫面亦能打敗同期機能較強的 GameGear 和 NEC PC-GT。<p>
-					</p>甚至在十幾年後的 1998 年，SNK 的 NeoGeo Pocket 也敗在了 Game Boy 的手下。</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-1989" data-0="display:none;" data-100="display: block;" data-2000="display:none;" data-emit-events>
-		<div id="block-1989-layout" data-1000="top: 0%;" data-2000="top: -100%;">
-			<img src="img/1989.png" data-0="top: 100%;" data-1000="top: 10%;">
-
-			<div class="block">
-				<div class="year" data-300="top: 120%" data-1000="top: 20%;">1989</div>
-				<div class="content" data-100="top: 100%" data-1000="top: 35%;">
-					<div class="header">Game Boy</div>
-					<div class="desc">
-						<p>Nintendo 經過 100 年的經營，正式發售 Game Boy 遊戲機。</p>
-						<p>因為以長時間遊玩為主要考量，Game Boy 只採用解析度 160 × 144 的反射式灰階液晶螢幕，雖然較 ATARI Lynx、SEGA Game Gear 等同期彩色競爭機種來說顯得較不亮眼，不過最長 35 小時的續航力、12800 日圓的低廉價格，加上 Tetris 等殺手級的遊戲陣容，使 Game Boy 擊敗眾多競爭者稱霸掌機市場近 10 年。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-1996" data-0="display:none;" data-1001="display: block;" data-3000="display:none;" data-emit-events>
-		<div id="block-1996-layout" data-2000="top: 0%;" data-3000="top: -100%;">
-			<img src="img/1996.png" data-1000="top: 100%;" data-2000="top: 10%;">
-
-			<div class="block">
-				<div class="year" data-1300="top: 120%" data-2000="top: 20%;">1996</div>
-				<div class="content" data-1100="top: 100%" data-2000="top: 35%;">
-					<div class="header">Game Boy Pocket</div>
-					<div class="desc">
-						<p>相比於上一代的 Game Boy 縮小了近 30% 的體積，並改良了 LCD 螢幕、更加省電，但在機能方面並沒有太大的變化，所以可以說是 Game Boy 的輕薄最佳化版。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-1998" data-0="display:none;" data-2001="display: block;" data-5000="display:none;">
-		<div id="block-1998-layout" data-4000="top: 0%;" data-5000="top: -100%;">
-			<img src="img/1998-1.png" data-2000="top: 100%;" data-3000="top: 10%;" data-4000="top: -100%;" data-emit-events>
-			<img src="img/1998-2.png" data-3000="top: 100%;" data-4000="top: 10%;" data-emit-events>
-
-			<div class="block">
-				<div class="year" data-2300="top: 120%;" data-3000="top: 20%;">1998</div>
-				<div class="content" data-2100="top: 100%" data-3000="top: 35%;" data-4000="top: -100%;">
-					<div class="header">Game Boy Light</div>
-					<div class="desc">
-						<p>是任天堂第一款帶背光的便攜式遊戲機，鑒於液晶顯示屏的特性，以往的 Game Boy 主機只能夠在光源充足的情況下使用，限制了掌機隨時遊玩的特性，因此加入了屏幕背景燈光的功能，使得即使在漆黑的房間中遊戲的畫面也能夠顯示得很清楚。而經過改良後使得主機的耗電量下降，電池就具有了更長的使用壽命。不過由於僅比下一代的 Game Boy Color 早約 6 個月發售，再加上單在日本銷售，因此出貨量不多，是系列幾種中較為稀少的一款。</p>
-					</div>
-				</div>
-
-				<div class="content" data-3000="top: 100%" data-4000="top: 35%;">
-					<div class="header">Game Boy Color</div>
-					<div class="desc">
-						<p>顯著的不同就是，擁有了一個最大發色數為 32000，可以同顯 56 色的 TFT 彩色液晶螢幕。現在來看 Game Boy Color 上面所登場的遊戲，其畫面、音效品質與製作水準，都已經全面超越了當年的時代。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-2001" data-0="display:none;" data-4001="display: block;" data-6000="display:none;" data-emit-events>
-		<div id="block-2001-layout">
-			<img src="img/2001.png" data-4000="transform:rotate(-90deg); top: 25%; left: -50%;" data-5000="transform[outCubic]:rotate(0deg); top: 25%; left: 0%;" data-6000="transform[outCubic]:rotate(90deg); top: 25%; left: 150%;">
-
-			<div class="block" data-5000="top: 0%;" data-6000="top: -100%;">
-				<div class="year" data-4300="top: 120%" data-5000="top: 20%;">2001</div>
-				<div class="content" data-4100="top: 100%" data-5000="top: 35%;">
-					<div class="header">Game Boy Advance</div>
-					<div class="desc">
-						<p>公司於21世紀初發售的新一代掌上遊戲機，是GB的第三代掌機。在設計上較其前一代有大幅度改進。在21世紀初可以說是非常流行的機種。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-2003" data-0="display:none;" data-5001="display: block;" data-7000="display:none;" data-emit-events>
-		<div id="block-2003-layout" data-6000="top: 0%;" data-7000="top: -100%;">
-			<img src="img/2003.png" data-5000="top: 100%;" data-6000="top: 10%;">
-
-			<div class="block">
-				<div class="year" data-5300="top: 120%" data-6000="top: 15%;">2003</div>
-				<div class="content" data-5100="top: 100%" data-6000="top: 31%;">
-					<div class="header">Game Boy Advance SP</div>
-					<div class="desc">
-						<p>Game Boy Advance SP是日本任天堂公司於2003年發售的便攜式遊戲機，是Game Boy Advance的升級產品。</p>
-						<p>機身為折疊式，顯示屏為帶發光裝置（前光）的32000色反射式TFT液晶顯示屏，解決了Game Boy Advance在黑暗中無法看清屏幕的問題。電池換成了充電鋰電池，充電3小時大約可使用10小時（不開屏幕發光裝置的話可以使用18小時）。本款在硬件的數據處理能力上和GBA沒有甚麼兩樣，但外觀和外圍配置卻發生了很大變化。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="block-2005" data-0="display:none;" data-6001="display: block;" no-data-8000="display:none;" data-emit-events>
-		<div id="block-2005-layout">
-			<img src="img/2005.png" data-6000="transform:rotate(-90deg); top: 20%; left: -50%;" data-7000="transform:rotate(0deg); top: 20%; left: -10%;" no-data-8000="transform:rotate(90deg); top: 20%; left: 150%;">
-
-			<div class="block" data-7000="top: 0%;" no-data-8000="top: -100%;">
-				<div class="year" data-6300="top: 120%" data-7000="top: 15%;">2005</div>
-				<div class="content" data-6100="top: 100%" data-7000="top: 30%;">
-					<div class="header">Game Boy Micro</div>
-					<div class="desc">
-						<p>能使用GBA遊戲軟體，Game Boy MICRO發售於2005年9月13日，特別為超級瑪利歐20周年紀念。性能等同於Game Boy Advance／Game Boy Advance SP，且非常小巧，便於攜帶。其螢幕缩小至2.0英寸（GBA/SP为2.9英寸），但同時在亮度上大幅度提高並有可調節的背光。</p>
-						<p>GBM是任天堂采用背光液晶屏幕的Game Boy Advance系列的款式，可做5級的亮度校調。同GBA不可摺疊，但其機型亦為系列中最輕巧的。</p>
-						<p>Game Boy MICRO也是Game Boy Advance系列中唯一不向下相容以前Game Boy和Game Boy Color遊戲。只支援GBA遊戲，另外連線配件也與Game Boy Advance系列不相容。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script type="text/javascript" src="js/skrollr.min.js"></script>
-	<script type="text/javascript" src="js/skrollr.menu.min.js"></script>
-	<script type="text/javascript">
-	var sections = {
-		'data1000': 'gameboy-1989',
-		'data2000': 'gameboy-1996',
-		'data3000': 'gameboy-1998-1',
-		'data4000': 'gameboy-1998-2',
-		'data5000': 'gameboy-2001',
-		'data6000': 'gameboy-2003',
-		'data7000': 'gameboy-2005'
-	};
-
-	var s = skrollr.init({
-		smoothScrolling: true
-	});
-
-	$(function() {
-
-		var curSection = window.location.hash;
-		skrollr.menu.init(s, {
-			animate: true,
-			easing: 'sqrt'
-		});
-
-		$(document).on('scroll', function () {
-			var pos = Math.round($(document).scrollTop() * 0.001) * 1000;
-			var hash = sections['data' + pos] || '';
-			curSection = '#' + hash;
-
-			history.pushState(null, null, curSection);
-		});
-
-		$(document).on('keydown', function(e) {
-
-			if (e.which == 33) {
-				var lastKey = null;
-				for (var key in sections) {
-
-					if ('#' + sections[key] == curSection) {
-
-						if (lastKey == null) {
-							$('body').stop(true, false).animate({
-								scrollTop: 0
-							}, 1000, 'easeOutCubic');
-							break;
-						}
-
-						$('body').stop(true, false).animate({
-							scrollTop: lastKey.replace('data', '')
-						}, 1000, 'easeOutCubic');
-						break;
-					}
-
-					lastKey = key;
-				}
-
-				return false;
-			} else if (e.which == 34) {
-				var found = false;
-				for (var key in sections) {
-					if (found || '#' == curSection || curSection == '') {
-						$('body').stop(true, false).animate({
-							scrollTop: key.replace('data', '')
-						}, 1000, 'easeOutCubic');
-						break;
-					}
-
-					if ('#' + sections[key] == curSection) {
-						found = true;
-					}
-				}
-				
-				return false;
-			}
-		});
-	});
-
-	</script>
-</body>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Website-gameboy-history by cfsghost</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Website-gameboy-history</h1>
+          <h2></h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/cfsghost/website-gameboy-history/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/cfsghost/website-gameboy-history/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/cfsghost/website-gameboy-history" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+        </section>
+
+        <footer>
+          Website-gameboy-history is maintained by <a href="https://github.com/cfsghost">cfsghost</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
 </html>
